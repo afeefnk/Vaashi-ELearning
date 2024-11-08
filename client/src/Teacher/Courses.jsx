@@ -26,7 +26,7 @@ import React, { useEffect, useState } from "react";
 //   // ComponentDidMount is used to
 //   // execute the code
 //   componentDidMount() {
-//     fetch("http://localhost:5000/api/course/user/62aa0246021c9967041f94c9")
+//     fetch("http://localhost:5001/api/course/user/62aa0246021c9967041f94c9")
 //       .then((res) => res.json())
 //       .then((json) => {
 //         this.setState({
@@ -84,7 +84,7 @@ import React, { useEffect, useState } from "react";
 // }
 
 const teacherId = localStorage.getItem("userId");
-  // console.log(teacherId);
+// console.log(teacherId);
 
 function Courses() {
   const [course, setCourse] = useState({
@@ -98,7 +98,7 @@ function Courses() {
   // const { id } = useParams();
 
   useEffect(() => {
-    const url = `http://localhost:5000/api/course/user/${teacherId}`;
+    const url = `http://localhost:5001/api/course/user/${teacherId}`;
 
     const fetchData = async () => {
       try {
@@ -114,7 +114,6 @@ function Courses() {
     fetchData();
   }, []);
 
-  
   const DataisLoaded = course.DataisLoaded;
 
   if (!DataisLoaded)
@@ -135,7 +134,11 @@ function Courses() {
       <div className="course-grid-4">
         {course.items.courses.courses.map((item) => (
           <div className="card" key={item._id}>
-            <img src={item.image || imagePlaceholder}  alt={item.title} className="card-img" />
+            <img
+              src={item.image || imagePlaceholder}
+              alt={item.title}
+              className="card-img"
+            />
             <div className="card-content">
               <div className="card-row">
                 <div className="course-title">

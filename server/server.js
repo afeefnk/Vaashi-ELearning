@@ -16,8 +16,8 @@ app.use("/api/user", router);
 app.use("/api/course", courseRouter);
 mongoose
   .connect(db)
-  .then(() => app.listen(5000))
+  .then(() => app.listen(5001))
   .then(() =>
-    console.log("Connected to database and listening to localhost:5000")
+    console.log("Connected to database and listening to localhost:5001")
   )
   .catch((err) => console.log(err));

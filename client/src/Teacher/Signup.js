@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   // const { name, email, password } = req.body;
-  
+
   let navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -27,7 +27,7 @@ const Signup = () => {
 
     const { name, email, password } = user;
 
-    const res = await fetch("http://localhost:5000/api/user/signup", {
+    const res = await fetch("http://localhost:5001/api/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +40,7 @@ const Signup = () => {
     });
     const data = await res.json();
 
-    if(data.status === 400 || !data ) {
+    if (data.status === 400 || !data) {
       window.alert("Signup Failed");
     } else {
       window.alert("Signup Successful");

@@ -8,7 +8,7 @@ function List(props) {
   });
 
   useEffect(() => {
-    const url = "http://localhost:5000/api/course";
+    const url = "http://localhost:5001/api/course";
 
     const fetchData = async () => {
       try {
@@ -37,10 +37,7 @@ function List(props) {
       }
     });
   }
-  if (!DataisLoaded)
-    return (
-      <div>Loading</div>
-    );
+  if (!DataisLoaded) return <div>Loading</div>;
   return (
     <ul className="searched-data">
       {filteredData.map((item) => (

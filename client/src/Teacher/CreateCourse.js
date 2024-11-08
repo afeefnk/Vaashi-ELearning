@@ -13,8 +13,6 @@ const CreateCourse = () => {
   const teacherId = localStorage.getItem("userId");
   // console.log(teacherId);
 
-
-
   const [course, setCourse] = useState({
     title: "",
     description: "",
@@ -42,7 +40,7 @@ const CreateCourse = () => {
     const { title, description, image, level, time, price, video, user } =
       course;
 
-    const res = await fetch("http://localhost:5000/api/course/add", {
+    const res = await fetch("http://localhost:5001/api/course/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

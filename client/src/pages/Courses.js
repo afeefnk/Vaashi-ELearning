@@ -21,7 +21,7 @@ class Courses extends React.Component {
   // ComponentDidMount is used to
   // execute the code
   componentDidMount() {
-    fetch("http://localhost:5000/api/course")
+    fetch("http://localhost:5001/api/course")
       .then((res) => res.json())
       .then((json) => {
         this.setState({
@@ -35,8 +35,13 @@ class Courses extends React.Component {
     if (!DataisLoaded)
       return (
         <div className="loader">
-        <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-      </div>
+          <div className="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
       );
 
     return (
@@ -46,13 +51,21 @@ class Courses extends React.Component {
         <div className="course-grid">
           {items.courses.map((item) => (
             <div className="card" key={item._id}>
-              <img src={item.image || imagePlaceholder} alt={item.title} className="card-img" />
+              <img
+                src={item.image || imagePlaceholder}
+                alt={item.title}
+                className="card-img"
+              />
               <div className="card-content">
                 <div className="card-row">
-                  <div className="course-title">{item.title.slice(0, 25) + "  ..."}</div>
+                  <div className="course-title">
+                    {item.title.slice(0, 25) + "  ..."}
+                  </div>
                 </div>
                 <div className="card-row">
-                  <div className="discription">{item.description.slice(0, 70) + "  ..."}</div>
+                  <div className="discription">
+                    {item.description.slice(0, 70) + "  ..."}
+                  </div>
                 </div>
                 <div className="card-row"></div>
                 <div className="card-row">

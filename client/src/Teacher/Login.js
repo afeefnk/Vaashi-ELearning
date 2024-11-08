@@ -11,7 +11,6 @@ const Login = () => {
   const [isSignup, setIsSignup] = useState(false);
   const [userData, setUserData] = useState("");
 
-  
   const IsLogged = localStorage.getItem("IsLogged");
   console.log(IsLogged);
   function CheckUser() {
@@ -23,7 +22,7 @@ const Login = () => {
   const LoginUser = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:5000/api/user/login", {
+    const res = await fetch("http://localhost:5001/api/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,12 +45,10 @@ const Login = () => {
       localStorage.setItem("IsLogged", true);
 
       window.alert("Login Successful");
-      
-      // navigate("/teacher/");
-      window.location.href="/teacher"
-    }
 
-   
+      // navigate("/teacher/");
+      window.location.href = "/teacher";
+    }
 
     // console.log(userData);
   };

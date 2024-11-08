@@ -33,7 +33,7 @@ const UpdateCourse = () => {
   };
 
   useEffect(() => {
-    const url = `http://localhost:5000/api/course/${id}`;
+    const url = `http://localhost:5001/api/course/${id}`;
 
     const fetchData = async () => {
       try {
@@ -59,7 +59,7 @@ const UpdateCourse = () => {
 
     const { title, description, image, level, time, price, video } = course;
 
-    const res = await fetch(`http://localhost:5000/api/course/update/${id}`, {
+    const res = await fetch(`http://localhost:5001/api/course/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +85,7 @@ const UpdateCourse = () => {
   };
 
   const deleteData = async () => {
-    const res = await fetch(`http://localhost:5000/api/course/${id}`, {
+    const res = await fetch(`http://localhost:5001/api/course/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -157,7 +157,6 @@ const UpdateCourse = () => {
             ></iframe>
           </div>
         </div>
-
 
         <br />
         <form method="POST" className="course-form">
